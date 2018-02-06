@@ -10,13 +10,14 @@
 	<style>
         #success{
             background-color: lightgreen;
+
         }
 		.outline{
 			margin: auto;
 			border: 3px solid #000;
 			padding: 20px;
 			width: 60%;
-			text-align: center;
+			text-align: left;
 			font-family: 'Arial', sans-serif;
 			font-size: 16px;
 		}
@@ -28,20 +29,26 @@
 </head>
 <body>
     <div class="outline" id="success">
-        <p>Thanks for submitting this form! You have submitted this form {{ count }} times now.</p>
+        <p>Thanks for submitting this form! You have submitted this form {{ request.session.count }} times now.</p>
     </div>
+    <br>
 	<div class="outline">
 		<h4><span>Submitted Information</span></h4>
         <br>
         <div id="info">
-            <p>Name: {{ name }}</p>
-            <p>Dojo Location: {{ location }}</p>
-            <p>Favorite Language: {{ language }}</p>
-            <p>Comment: {{ comment }}</p>
+            <p>Name: {{ request.session.name }}</p>
+            <p>Dojo Location: {{ request.session.location }}</p>
+            <p>Favorite Language: {{ request.session.language }}</p>
+            <p>Comment: {{ request.session.comment }}</p>
         </div>
         <form action="/go_back" method="POST" class="form-group">
-            <input type="submit" class="btn btn-default"></input>
+            {% csrf_token %}
+            <input type="submit" value="Go Back" class="btn btn-default"></input>
         </form>
-	</div>
+    </div>
+    <form action="/reset" method="post" class="form-group">
+		{% csrf_token %}
+		<input type="submit" value="Reset">
+	</form>
 </body>
 </html>
