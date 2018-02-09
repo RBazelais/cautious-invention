@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<style>
+		#outline{
+			margin: auto;
+			border: 3px solid #000;
+			padding: 20px;
+			width: 60%;
+			font-family: 'Arial', sans-serif;
+			font-size: 16px;
+		}
+	</style>
+	<title>Amadon App</title>
+</head>
+<body>
+	<div id="outline">
+		<h3>Amadon</h3>
+		<br>
+        <table class="table table-hover">
+            <tr class="row">
+                <th class="col">
+                    Item
+                </th>
+                <th class="col">
+                    Price
+                </th>
+                <th class="col">
+                    Actions
+                </th>
+            </tr>
+            <tr class="row">
+                <td class="col">
+                    Dojo T-Shirt
+                </td>
+                <td class="col">
+                    $19.99
+                </td>
+                <td class="col">
+                    <form action='/amadon/buy' method='POST'>
+                        {% csrf_token %}
+                        <select name='quantity'>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select>
+                        <input type='hidden' name='shirt' value='20' />
+                        <input type='submit' value='Buy!'/>
+                    </form>
+                </td>
+            </tr>
+            <tr class="row">
+                <td class="col">
+                    Dojo Sweater
+                </td>
+                <td class="col">
+                    $29.99
+                </td>
+                <td class="col">
+                    <form action='/amadon/buy' method='POST'>
+                        {% csrf_token %}
+                        <select name='quantity'>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select>
+                        <input type='hidden' name='sweater' value='30' />
+                        <input type='submit' value='Buy!'/>
+                    </form>
+                </td>
+            </tr>
+            <tr class="row">
+                <td class="col">
+                    Dojo Mug
+                </td>
+                <td class="col">
+                    $4.99
+                </td>
+                <td class="col">
+                    <form action='/amadon/buy' method='POST'>
+                        {% csrf_token %}
+                        <select name='quantity'>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select>
+                        <input type='hidden' name='mug' value='5' />
+                        <input type='submit' value='Buy!'/>
+                    </form>
+                </td>
+            </tr>
+            <tr class="row">
+                <td class="col">
+                    Dojo Algorithim Book
+                </td>
+                <td class="col">
+                    $49.99
+                </td>
+                <td class="col">
+                    <form action='/amadon/buy' method='post'>
+                        {% csrf_token %}
+                        <select name='quantity'>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select>
+                        <input type='hidden' name='algo_book' value='50' />
+                        <input type='submit' value='Buy!'/>
+                    </form>
+                </td>
+            </tr>
+        </table>
+	</div>
+	<!-- <form action="/reset" method="post" class="form-group">
+		{% csrf_token %}
+		<input type="submit" value="Reset" class="btn">
+	</form> -->
+</body>
+</html>
