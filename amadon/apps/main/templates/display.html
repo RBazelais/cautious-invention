@@ -33,8 +33,8 @@
         <br>
         <div id="info">
             <!-- <p>Your order of</p> -->
-            <p>We charged your credit card for {{ price }}</p>
-            <p>You have ordered {{ count }} items so far and spend ${{ total }} with Amadon.com!</p>
+            <p>We charged your credit card for {{ request.session.price }}</p>
+            <p>You have ordered {{ request.session.count }} items so far and spend ${{ request.session.total }} with Amadon.com!</p>
             
             <form action="/go_back" method="POST" class="form-group">
                 {% csrf_token %}

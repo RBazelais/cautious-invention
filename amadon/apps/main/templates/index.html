@@ -42,14 +42,14 @@
                     $19.99
                 </td>
                 <td class="col">
-                    <form action='/amadon/buy' method='POST'>
+                    <form action='/checkout' method='POST'>
                         {% csrf_token %}
                         <select name='quantity'>
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
                         </select>
-                        <input type='hidden' name='shirt' value='20' />
+                        <input type='hidden' name='buy' value='shirt' />
                         <input type='submit' value='Buy!'/>
                     </form>
                 </td>
@@ -62,14 +62,14 @@
                     $29.99
                 </td>
                 <td class="col">
-                    <form action='/amadon/buy' method='POST'>
+                    <form action='/checkout' method='POST'>
                         {% csrf_token %}
                         <select name='quantity'>
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
                         </select>
-                        <input type='hidden' name='sweater' value='30' />
+                        <input type='hidden' name='buy' value='sweater' />
                         <input type='submit' value='Buy!'/>
                     </form>
                 </td>
@@ -82,14 +82,14 @@
                     $4.99
                 </td>
                 <td class="col">
-                    <form action='/amadon/buy' method='POST'>
+                    <form action='/checkout' method='POST'>
                         {% csrf_token %}
                         <select name='quantity'>
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
                         </select>
-                        <input type='hidden' name='mug' value='5' />
+                        <input type='hidden' name='buy' value='mug' />
                         <input type='submit' value='Buy!'/>
                     </form>
                 </td>
@@ -102,14 +102,14 @@
                     $49.99
                 </td>
                 <td class="col">
-                    <form action='/amadon/buy' method='post'>
+                    <form action='/checkout' method='POST'>
                         {% csrf_token %}
                         <select name='quantity'>
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
                         </select>
-                        <input type='hidden' name='algo_book' value='50' />
+                        <input type='hidden' name='buy' value='algo_book' />
                         <input type='submit' value='Buy!'/>
                     </form>
                 </td>
