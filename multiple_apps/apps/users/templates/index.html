@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{%  block content %}
+
+<main>
+	<h3>Mulitple apps</h3>
+	<div id="outline">
+		<h2>Registration</h2>
+		{{num}}
+		{{ form.non_field_errors }}
+		<form action="/register" method="POST">
+			{% csrf_token %}
+			<div class="form-group">
+				{{ form.first_name.errors }}
+				<label for="first_name">First Name:</label>
+				<input type="text" name="first_name">
+			</div>
+
+			<div class="form-group">
+				{{ form.last_name.errors }}
+				<label for="last_name">Last Name:</label>
+				<input type="text" name="last_name">
+			</div>
+
+			<div class="form-group">
+				{{ form.email.errors }}
+				<label for="email">email:</label>
+				<input type="email" name="email">
+			</div>
+
+			<div class="form-group">
+				{{ form.password.errors }}
+				<label for="password">Password:</label>
+				<input type="password" name="password">
+			</div>
+
+			<div class="form-group">
+				{{ form.confirm_password.errors }}
+				<label for="confirm_password">ConfirmPassword:</label>
+				<input type="password" name="confirm_password">
+			</div>
+			
+			<input class="btn btn-primary" type="submit" value="Register">
+		</form>
+	</div>
+	<br><br>
+	<div id="outline">
+		<h2>Login</h2>
+		<form action="/login" method="POST">
+			{% csrf_token %}
+			<div class="form-group">
+				{{ form.email.errors }}
+				<label for="email">email:</label>
+				<input type="email" name="email">
+			</div>
+			<div class="form-group">
+				{{ form.password.errors }}
+				<label for="password">Password:</label>
+				<input type="password" name="password">
+			</div>
+			<input class="btn btn-primary" type="submit" value="Login">
+		</form>
+	</div>
+</main>
+
+{% endblock %}

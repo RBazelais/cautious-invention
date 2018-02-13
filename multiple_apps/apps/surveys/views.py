@@ -1,0 +1,9 @@
+from django.shortcuts import render, redirect, HttpResponse
+
+# Create your views here.
+def index(request):
+    # return render(request, 'index.html')
+    return HttpResponse("You're in surveys now")
+
+def new(request):
+    pass

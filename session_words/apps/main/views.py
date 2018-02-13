@@ -40,15 +40,15 @@ def add_word(request):
         # 'red' : red,
         # 'green' : green,
         # 'blue' : blue,
-        # 'bold' : bigger_font
+        # 'bold' : bold
     }
 
-    # if request.POST == request.session['red']:
-    #     request.session['stuff'].append({
-    #         'word':request.POST['word'], 
-    #         'timestamp' : datetime.datetime.now().strftime('%H:%m%p, %B %d, %Y'),
-    #         # 'red': request.POST['red'], 
-    #     })
+    if request.POST == ['red']:
+        request.session['stuff'].append({
+            'word': request.POST['word'], 
+            'timestamp' : datetime.datetime.now().strftime('%H:%m%p, %B %d, %Y'),
+            # 'red': request.POST['red'], 
+        })
     # elif request.POST == request.session['green']:
     #     request.session['stuff'].append({
     #         'green': request.POST['green'], 
