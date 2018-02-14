@@ -16,29 +16,37 @@
 			font-size: 16px;
 		}
         #clear_btn{
+            border-radius: 0;
+            /* box-shadow: #000; */
+            border: 3px solid #000;
             background-color: pink;
             float: right;
         }
         #add_btn{
+            border-radius: 0;
+            border: 3px solid #000;
             background-color: lightskyblue;
         }
-        #red{
+        .red{
             color: red;
-        }
-        #green{
-            color: green;
-        }
-        #blue{
-            color: blue;
-        }
-        #bold{
-            font-weight: bold;
-        }
-        li{
             text-decoration: none;
+        }
+        .green{
+            color: green;
+            text-decoration: none;
+        }
+        .blue{
+            color: blue;
+            text-decoration: none;
+        }
+        .bold{
+            font-weight: bold;
         }
         .row h3{
             text-align: center;
+        }
+        .log ul:default{
+            text-decoration: none;
         }
 	</style>
 	<title>Session Words App</title>
@@ -61,26 +69,26 @@
                             </div>
                         </div>
                         <div class="radio">
-                            <label>
-                                <input type="radio" name="red" id="red_option" value="red">
+                            <label class="red">
+                                <input type="radio" name="color" value="red">
                                 Red
                             </label>
                         </div>
-                        <!-- <div class="radio">
-                            <label>
-                                <input type="radio" name="green" id="green_option" value="green">
+                        <div class="radio">
+                            <label class="green">
+                                <input type="radio" name="color" value="green">
                                 Green
                             </label>
                         </div>
                         <div class="radio">
-                            <label>
-                                <input type="radio" name="blue" id="blue_option" value="blue">
+                            <label class="blue">
+                                <input type="radio" name="color" value="blue">
                                 Blue
                             </label>
-                        </div> -->
+                        </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" name="bold" value=""> Show in BIG fonts
+                                <input type="checkbox" name="bold" value="bold"> Show in <span class="bold">BOLD</span> fonts
                             </label>
                         </div>
                         <br>
@@ -96,13 +104,18 @@
                             <input type="submit" value="Clear Session" class="btn btn-default" id="clear_btn"></input>
                         </div>
                     </form>
-                    <p>Your word will appear here + timestamp </p>
-                    <div class="stuff">
-                        <!-- <li>{{ request.session.word }} - added on {{ request.session.timestamp }}</li> -->
-                        {% for entry in request.session.stuff %} 
-                            <p style="color: {{entry.color}};" >{{ entry.word }} - added on {{timestamp}}</p>
+                    
+                    <ul class="log">
+                        {% for item in request.session.log %} 
+                            <li>
+                                <span class='{{ item.bold }} {{ item.color }}'>
+                                    {{ item.word }}
+                                </span> - added on {{ item.timestamp }}
+                            </li>
+                        {% empty %}
+                            <li>Your word will appear here</li>
                         {% endfor %}
-                    </div>
+                    </ul>
                 </div>
             </div>
         </div>

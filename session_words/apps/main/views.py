@@ -8,65 +8,68 @@ def index(request):
 
 def add_word(request):
     word = request.POST['word']
-    timestamp = request.POST['timestamp']
-    # red = request.POST['red']
-    # green = request.POST['green']
-    # blue = request.POST['blue']
-    # bigger_font = request.POST['bold']
+    timestamp = request.POST['timestamp']  
+    color = request.POST.get('color', '')
+    bold = request.POST.get('bold', 'regular')
     
-    print word
-    # print request.POST['red']
-    # print request.POST['green']
-    # print request.POST['blue']
-    # print bigger_font
 
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
-        request.session['word'] = request.POST['word']
-        request.session['timestamp'] = datetime.datetime.now().strftime('%H:%m%p, %B %d, %Y')
-        # request.session['red'] = request.POST['red']
-        # request.session['green'] = request.POST['green']
-        # request.session['blue'] = request.POST['blue']
-        # request.session['bold'] = request.POST['bold']
+        print "The method is POST"
+        if color == 'red':
+            print "The color is red"
+            request.session['color'] = 'red'
+            request.session['word'] = request.POST['word']
+            request.session['timestamp'] = datetime.datetime.now().strftime('%H:%m%p, %B %d, %Y')
+            if bold == 'bold':
+                print "The text is Bold"
+                request.session['bold'] = 'bold'
 
-    try:
-        request.session['stuff']
-    except:
-        request.session['stuff'] = []
-
+        elif color == 'green':
+            print "The color is green"
+            request.session['color'] = 'green'
+            request.session['word'] = request.POST['word']
+            request.session['timestamp'] = datetime.datetime.now().strftime('%H:%m%p, %B %d, %Y')
+            if bold == 'bold':
+                print "The text is bold"
+                request.session['bold'] = 'bold'
+        elif color == 'blue':
+            print "The color is blue"
+            request.session['color'] = 'blue'
+            request.session['word'] = request.POST['word']
+            request.session['timestamp'] = datetime.datetime.now().strftime('%H:%m%p, %B %d, %Y')
+            if bold == 'bold':
+                print "The text is bold"
+                request.session['bold'] = 'bold'
+        else:
+            print "There is no color"
+            request.session['word'] = request.POST['word']
+            request.session['timestamp'] = datetime.datetime.now().strftime('%H:%m%p, %B %d, %Y')
+            if bold == 'bold':
+                print "The text is Bold"
+                request.session['bold'] = 'bold'
+    
     context = {
         'word': word, 
         'timestamp': timestamp,
-        # 'red' : red,
-        # 'green' : green,
-        # 'blue' : blue,
-        # 'bold' : bold
+        'color': color,
+        'bold': bold,
     }
+    print "***********"
+    print request.POST
 
-    if request.POST == ['red']:
-        request.session['stuff'].append({
-            'word': request.POST['word'], 
-            'timestamp' : datetime.datetime.now().strftime('%H:%m%p, %B %d, %Y'),
-            # 'red': request.POST['red'], 
-        })
-    # elif request.POST == request.session['green']:
-    #     request.session['stuff'].append({
-    #         'green': request.POST['green'], 
-    #         'word':request.POST['word'], 
-    #         'timestamp' : datetime.datetime.now().strftime('%H:%m%p, %B %d, %Y')
-    #     })
-    # elif request.POST == request.session['blue']:
-    #     request.session['stuff'].append({
-    #         'blue': request.POST['blue'], 
-    #         'word':request.POST['word'], 
-    #         'timestamp' : datetime.datetime.now().strftime('%H:%m%p, %B %d, %Y')
-    #     })
-    # else:
-    #     request.session['stuff'].append({
-    #         'word': request.POST['word'], 
-    #         'timestamp' : datetime.datetime.now().strftime('%H:%m%p, %B %d, %Y')
-    #     })
+    try:
+        request.session['log']
+    except:
+        request.session['log'] = []
 
+    request.session['log'].append({
+        'word': request.POST['word'],
+        'timestamp': request.session['timestamp'],
+        'color': request.POST.get('color', ''),
+        'bold': request.POST.get('bold', 'none'),
+    })
+     # 'content': '{} - added on {}'.format(word, datetime.now().strftime('%H:%m%p, %B %d, %Y'))
     return redirect('/', context)
 
 def clear_session(request):

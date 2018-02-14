@@ -18,7 +18,7 @@ def reset(request):
 def process(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
-        shirt = request.POST.get('shirt', '')
+        shirt = request.POST.get('shirt', False)
         sweater = request.POST.get('sweater', False)
         mug = request.POST.get('mug', False)
         algo_book = request.POST.get('algo_book', False)
