@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{%  block content %}
+
+<main>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
+            <a class="navbar-brand" href="#">Travel Buddy</a>
+            <button type="submit" class="btn my-2 my-sm-0">
+                <a href="/logout">Logout</a>
+            </button>
+        </nav> 
+        <h4>Logged in as {{ user.name }}</h4>
+        <h6>Your Trip schedules</h6>
+        <table cellpadding="10" border="1px solid #000">
+            <tr>
+                <th>Desintation</th> 
+                <th>Travel Start Date</th>
+                <th>Travel End Date</th>
+                <th>Description</th>
+            </tr>
+            {% for plan in plans %}
+                <tr>
+                    <td>{{ plan.destination }}</td>
+                    <td>{{ plan.start_date }}</td> 
+                    <td>{{ plan.end_date }}</td>
+                    <td>{{ plan.description }}</td>
+            </tr>
+            {% endfor %}
+            <br>
+        </table>
+        <br><br>
+        <h6>Other User's Travel Plans</h6>
+        <table cellpadding="10" border="1px solid #000">
+            <tr>
+                <th>Name</th>
+                <th>Desintation</th> 
+                <th>Travel Start Date</th>
+                <th>Travel End Date</th>
+                <th>Do you want to Join?</th>
+            </tr>
+            <tr>
+                <!-- {% for review in user.trips.all %}
+                    <td>
+                        <a href="/books/{{review.book.id}}">{{ review.book.name }}</a>
+                    </td>
+                {% endfor %} -->
+                <td></td>
+                <td></td> 
+                <td></td>
+                <td></td>
+                <td>
+                    <a href="#">Join</a>
+                </td>
+            </tr>
+            <br>
+        </table>
+        <br><br>
+        <a href="#/add_plan">Add Travel Plan</a>
+    </div>
+</main>
+
+{% endblock %}
+
+<!-- {% for review in user.trips.all %}
+    <td>
+        <a href="/books/{{review.book.id}}">{{ review.book.name }}</a>
+    </td>
+{% endfor %} -->

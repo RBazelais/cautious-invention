@@ -13,7 +13,8 @@ class Dojo(models.Model):
 class Ninjas(models.Model):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
-    dojo_id = models.IntegerField()    def __str__(self):
+    dojo_id = models.IntegerField()    
+    def __str__(self):
         return self.first_name
 
 # >>> from apps.dojo_ninjas.models import *
@@ -104,4 +105,7 @@ class Ninjas(models.Model):
 
 # Dojo.objects.all()
 # <QuerySet [<Dojo: CodingDojo Seattle>, <Dojo: CodingDojo New York>, <Dojo: CodingDojo Los Angeles>]>
-# >>> Dojo.objects.first().get(Ninjas.objects.get(dojo_id=1)
+# Ninjas.objects.filter(dojo_id="1").all()
+# <QuerySet [<Ninjas: Jim>, <Ninjas: Cherrise>, <Ninjas: Omar>]>
+# Ninjas.objects.filter(dojo_id="3").all()
+# <QuerySet [<Ninjas: T'Challa>, <Ninjas: Sombra>, <Ninjas: Shakia>]>
