@@ -28,11 +28,14 @@ class UserManager(models.Manager):
 
         if postData['password'] < 8:
             errors.append("Your password is too short")
-        else:
-            hashed = bcrypt.hashpw(postData['password'].encode(), bcrypt.gensalt())
+        # else:
+        #     hashed = bcrypt.hashpw(postData['password'].encode(), bcrypt.gensalt())
 
-        if datetime.strptime(postData['birthday'], '%Y-%m-%d') > datetime.now() - relativedelta(years = 13):
-            errors.append("You must be at least 13 years old to register")
+        try:
+            if datetime.strptime(postData['birthday'], '%Y-%m-%d') > datetime.now() - relativedelta(years = 13):
+                errors.append("You must be at least 13 years old to register")
+        except ValueError:
+            errors.append("Please enter a valid date")
 
         if len(errors) > 0:
 			return errors
@@ -41,20 +44,45 @@ class UserManager(models.Manager):
                 name = postData['name'], 
                 username = postData['user_name'],
                 email = postData['email'],
-                password = hashed, 
+                password = postData['password'],
+                # password = hashed, 
                 birthday = postData['birthday'],
             )
-			return new_user	
+			return (new_user)	
     
-    def login_validation(self, postData):
-        users = User.objects.filter(username=postData['user_name'])
-        password = User.objects.get(password=postData['password'])
-        if len(users) == 0:
-			return "Wrong username"
-        elif bcrypt.checkpw(password.encode(), users[0].password.encode()) == False:
-			return "Incorrect password"
-        else:	
-			return users[0]
+    def login_validation(self, postData):    
+        errors = []
+        if len(postData['user_name']) < 2:
+            errors.append("Your username is too short")
+        if len(postData['password']) < 2:
+            errors.append("Your password is too short")
+
+        if len(errors) > 0:
+            return (False, errors)
+        else:
+            user_exists = User.objects.filter(username=postData['user_name'])
+            # QuerySet[<User Obj>]
+            if user_exists: # check to see if i got a user based on username
+                print "found a user", 0
+                if user_exists[0].password == postData['password']: 
+                    # if true, username and password matches what is in DB
+                    return (True, user_exists[0]) # <User Obj>    
+                else:
+                    errors.append("Password is incorrect") 
+                    return(False, errors)
+            else:
+                print "did not find user"
+                errors.append("No user exists with this username.") 
+                return(False, errors)
+                
+        # users = User.objects.filter(username=postData['user_name'])
+        # password = User.objects.get(password=postData['password'])
+        # if len(postData['user_name']) < 2:
+		# 	errors.append("Username is too short")
+        # elif bcrypt.checkpw(password.encode(), users[0].password.encode()) == False:
+		# 	return "Incorrect password"
+        # else:	
+		# 	return users[0]
 
 
 class User(models.Model):

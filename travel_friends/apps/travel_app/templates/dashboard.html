@@ -6,29 +6,46 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
             <a class="navbar-brand" href="#">Travel Buddy</a>
             <button type="submit" class="btn my-2 my-sm-0">
-                <a href="/logout">Logout</a>
+                <a href="/lr_app/logout">Logout</a>
             </button>
         </nav> 
-        <h4>Logged in as {{ user.name }}</h4>
+        <br>
+        <h5>Logged in as {{ user.name }}</h5>
+        <br>
         <h6>Your Trip schedules</h6>
         <table cellpadding="10" border="1px solid #000">
             <tr>
                 <th>Desintation</th> 
                 <th>Travel Start Date</th>
                 <th>Travel End Date</th>
-                <th>Description</th>
+                <th>Plan</th>
             </tr>
-            {% for plan in plans %}
+            {% for trip in my_trips %}
                 <tr>
-                    <td>{{ plan.destination }}</td>
-                    <td>{{ plan.start_date }}</td> 
-                    <td>{{ plan.end_date }}</td>
-                    <td>{{ plan.description }}</td>
-            </tr>
+                    <td><a href="/travels/destination/{{ trip.id }}">{{ trip.destination }}</a></td>
+                    <td>{{ trip.start_date }}</td> 
+                    <td>{{ trip.end_date }}</td>
+                    <td>{{ trip.description }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td>No trips scheduled</td>
+                    <td>N/A</td> 
+                    <td>N/A</td>
+                    <td>N/A</td>
+                </tr>
+            {% endfor %}
+            {% for trip in my_joins %}
+                <tr>
+                    <td><a href="/travels/destination/{{ trip.id }}">{{ trip.destination }}</a></td>
+                    <td>{{ trip.start_date }}</td> 
+                    <td>{{ trip.end_date }}</td>
+                    <td>{{ trip.description }}</td>
+                </tr>
             {% endfor %}
             <br>
         </table>
-        <br><br>
+        <br>
         <h6>Other User's Travel Plans</h6>
         <table cellpadding="10" border="1px solid #000">
             <tr>
@@ -39,30 +56,22 @@
                 <th>Do you want to Join?</th>
             </tr>
             <tr>
-                <!-- {% for review in user.trips.all %}
-                    <td>
-                        <a href="/books/{{review.book.id}}">{{ review.book.name }}</a>
-                    </td>
-                {% endfor %} -->
-                <td></td>
-                <td></td> 
-                <td></td>
-                <td></td>
-                <td>
-                    <a href="#">Join</a>
-                </td>
+                {% for trip in other_trips %}
+                <tr>
+                    <td>{{ trip.uploader }}</td>
+                    <td><a href="/travels/destination/{{ trip.id }}">{{ trip.destination }}</a></td>
+                    <td>{{ trip.start_date }}</td> 
+                    <td>{{ trip.end_date }}</td>
+                    <td><a href="/travels/join/{{ trip.id }}">Join</a></td>
+                </tr>
+                {% endfor %}
+
             </tr>
             <br>
         </table>
         <br><br>
-        <a href="#/add_plan">Add Travel Plan</a>
+        <a href="/travels/add">Add Travel Plan</a>
     </div>
 </main>
 
 {% endblock %}
-
-<!-- {% for review in user.trips.all %}
-    <td>
-        <a href="/books/{{review.book.id}}">{{ review.book.name }}</a>
-    </td>
-{% endfor %} -->

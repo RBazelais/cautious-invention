@@ -28,7 +28,7 @@
             <div class="col-md-6">
                 <fieldset>
                     <legend>Registration</legend>
-                    <form action="/register" method="POST">
+                    <form action="/lr_app/register" method="POST">
                         {% csrf_token %}
                         <div class="form-group">    
                             <label for="name">Name: </label>
@@ -62,7 +62,7 @@
             <div class="col-md-6">
                 <fieldset>
                     <legend>Login</legend>
-                    <form action="/login" method="POST">
+                    <form action="/lr_app/login" method="POST">
                         {% csrf_token %}
                         <div class="form-group">
                             <label for="Username">Username: </label>
