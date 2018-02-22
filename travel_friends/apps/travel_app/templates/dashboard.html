@@ -27,13 +27,6 @@
                     <td>{{ trip.end_date }}</td>
                     <td>{{ trip.description }}</td>
                 </tr>
-                {% empty %}
-                <tr>
-                    <td>No trips scheduled</td>
-                    <td>N/A</td> 
-                    <td>N/A</td>
-                    <td>N/A</td>
-                </tr>
             {% endfor %}
             {% for trip in my_joins %}
                 <tr>
@@ -56,7 +49,7 @@
                 <th>Do you want to Join?</th>
             </tr>
             <tr>
-                {% for trip in other_trips %}
+                {% for trip in all_trips %}
                 <tr>
                     <td>{{ trip.uploader }}</td>
                     <td><a href="/travels/destination/{{ trip.id }}">{{ trip.destination }}</a></td>

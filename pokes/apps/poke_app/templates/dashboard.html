@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{%  block content %}
+
+<main>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
+            <a class="navbar-brand" href="#">Fake Pokes</a>
+            <button type="submit" class="btn my-2 my-sm-0">
+                <a href="/lr_app/logout">Logout</a>
+            </button>
+        </nav> 
+        <br>
+        <h5>Welcome! {{ user.name }}</h5>
+        <br>
+        {% for trip in my_trips %}
+            <p>{{ trip.description }}</p>
+            {% empty %}
+            <p>No one has poked you</p>
+        {% endfor %}
+        <h6>People you may want to poke:</h6>
+        <table cellpadding="10" border="1px solid #000">
+            <tr>
+                <th>Desintation</th> 
+                <th>Travel Start Date</th>
+                <th>Travel End Date</th>
+                <th>Plan</th>
+            </tr>
+            {% for trip in my_trips %}
+                <tr>
+                    <td><a href="/travels/destination/{{ trip.id }}">{{ trip.destination }}</a></td>
+                    <td>{{ trip.start_date }}</td> 
+                    <td>{{ trip.end_date }}</td>
+                    <td>{{ trip.description }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td>No trips scheduled</td>
+                    <td>N/A</td> 
+                    <td>N/A</td>
+                    <td>N/A</td>
+                </tr>
+            {% endfor %}
+            <br>
+        </table>
+        <br>
+        <br><br>
+        <a href="/travels/add">Add Travel Plan</a>
+    </div>
+</main>
+
+{% endblock %}

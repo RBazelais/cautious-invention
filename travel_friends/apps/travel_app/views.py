@@ -10,16 +10,13 @@ def travels(request):
         return redirect('/lr_app')
     else:
         print "user.id: " + str( User.objects.get(id=request.session['user_id']))
-
         context = {
             'user': User.objects.get(id=request.session['user_id']),
-            'my_joins': Trip.objects.exclude(uploader_id = User.objects.get(id=request.session['user_id'])),
-            'my_trips': Trip.objects.filter(uploader_id = User.objects.get(id=request.session['user_id'])),
-            'other_trips':  Trip.objects.exclude(uploader = User.objects.get(id=request.session['user_id'])).exclude(members = User.objects.get(id=request.session['user_id'])),
+            'my_joins': Trip.objects.filter(members = User.objects.get(id=request.session['user_id'])),
+            'my_trips': Trip.objects.filter(uploader = User.objects.get(id=request.session['user_id'])),
+            'all_trips':  Trip.objects.exclude(uploader = User.objects.get(id=request.session['user_id'])).exclude(members = User.objects.get(id=request.session['user_id'])),
             # 'join_other_trips': Trip.objects__set.add(User.objects.get(id=request.session['user_id']))
         }
-
-
     return render(request, "dashboard.html", context)
 
 def route_add_plan(request):

@@ -40,7 +40,7 @@ class UserManager(models.Manager):
         if len(errors) > 0:
 			return errors
         else:
-			new_user = User.objects.create(
+            new_user = User.objects.create(
                 name = postData['name'], 
                 username = postData['user_name'],
                 email = postData['email'],
@@ -48,7 +48,7 @@ class UserManager(models.Manager):
                 # password = hashed, 
                 birthday = postData['birthday'],
             )
-			return (new_user)	
+            return (True, new_user[0])	
     
     def login_validation(self, postData):    
         errors = []
@@ -79,7 +79,7 @@ class UserManager(models.Manager):
         # password = User.objects.get(password=postData['password'])
         # if len(postData['user_name']) < 2:
 		# 	errors.append("Username is too short")
-        # elif bcrypt.checkpw(password.encode(), users[0].password.encode()) == False:
+        # elif bcrypt.checkpw(password.encode('utf-8'), users[0].password.encode()) == False:
 		# 	return "Incorrect password"
         # else:	
 		# 	return users[0]
