@@ -12,26 +12,31 @@ def register(request):
     if results[0]:
         request.session['user_id'] = results[1].id
         print "******* New User registered ******"
-        return redirect("/pokes/")
+        return redirect("/success")
     else:
         for err in results[1]:
             messages.error(request, err)
-        print "******* Registration Failed, see errors ******"
-        return redirect('/lr_app')
+        print "******* Registration failed, see errors ******"
+        return redirect('/')
 
 def login(request):
     results = User.objects.login_validation(request.POST)
     
     if results[0]:
-        request.session['user_id'] = results[1].id 
-        print "******* logged in yo! ******"
+        request.session['user_id'] = results[1][0].id 
+        print "******* User is logged in! ******"
         print request.session['user_id']
-        return redirect("/pokes")
+        return redirect("/success")
     else:
         for err in results[1]:
             messages.error(request, err)
-        return redirect('/lr_app')
+        print "******* Login failed, see errors ******"
+        return redirect('/')
+
+def success(request):
+    user = User.objects.get(id = request.session['user_id'])
+    return render(request, 'success.html', {'user': user})
 
 def logout(request):
-	request.session.clear()	
-	return redirect('/lr_app')
+	request.session.flush()	
+	return redirect('/')

@@ -15,17 +15,17 @@ class UserManager(models.Manager):
         EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 
         errors = []
-        if len(postData['name']) < 2:
-            errors.append("Your name is too short")
-        if len(postData['alias']) < 2:
-            errors.append("Your alias is too short")
+        if len(postData['first_name']) < 2:
+            errors.append("Your first name is too short")
+        if len(postData['last_name']) < 2:
+            errors.append("Your last name is too short")
         if not EMAIL_REGEX.match(postData['email']):
             errors.append("You must submit a valid email")
         if postData['password'] != postData['confirm_password']:
             errors.append("Your passwords do not match")
         try:
-             if datetime.strptime(postData["birthday"], '%Y-%m-%d') > datetime.now() - relativedelta(years=13):
-                errors.append("You must be at least 13 y/o.")
+             if datetime.strptime(postData["birthday"], '%Y-%m-%d') > datetime.now():
+                errors.append("I know you weren't born yesterday")
         except ValueError:
             errors.append("You must enter a valid date")
 
@@ -33,7 +33,7 @@ class UserManager(models.Manager):
             return (False, errors)
         else:
             hashed = bcrypt.hashpw(postData['password'].encode('utf8'), bcrypt.gensalt())
-            user = User.objects.create(name=postData["name"], alias=postData['alias'], email=postData['email'], password=hashed, birthday = postData['birthday'])
+            user = User.objects.create(first_name=postData['first_name'], last_name=postData['last_name'], email=postData['email'], password=hashed, birthday = postData['birthday'])
             return (True, user)
     
     def login_validation(self, postData):
@@ -56,13 +56,14 @@ class UserManager(models.Manager):
             else:
                 errors.append("Email is invalid")
             return (False, errors)
+    pass
         
 class User(models.Model):
-    name = models.CharField(max_length=25)
-    alias = models.CharField(max_length=25)
+    first_name = models.CharField(max_length=25)
+    last_name = models.CharField(max_length=25)
     email = models.CharField(max_length=50)
     password = models.CharField(max_length=50)
-    birthday = models.DateField()
+    birthday = models.DateField(auto_now=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
