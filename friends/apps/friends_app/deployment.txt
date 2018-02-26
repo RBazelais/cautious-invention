@@ -1,0 +1,674 @@
+Successfully installed django-extensions-2.0.0 typing-3.6.4
+(venv) ubuntu@ip-172-31-22-51:~/fluffy-computing-machine$ pip install gunicorn
+Collecting gunicorn
+  Downloading gunicorn-19.7.1-py2.py3-none-any.whl (111kB)
+    100% |████████████████████████████████| 112kB 2.7MB/s
+Installing collected packages: gunicorn
+Successfully installed gunicorn-19.7.1
+(venv) ubuntu@ip-172-31-22-51:~/fluffy-computing-machine$ ls
+apps  db.sqlite3  friends  manage.py  requirements.txt  venv
+(venv) ubuntu@ip-172-31-22-51:~/fluffy-computing-machine$ cd friends/
+(venv) ubuntu@ip-172-31-22-51:~/fluffy-computing-machine/friends$ sudo vim settings.py
+(venv) ubuntu@ip-172-31-22-51:~/fluffy-computing-machine/friends$ sudo vim settings.py
+(venv) ubuntu@ip-172-31-22-51:~/fluffy-computing-machine/friends$ cd ../
+(venv) ubuntu@ip-172-31-22-51:~/fluffy-computing-machine$ ls
+apps  db.sqlite3  friends  manage.py  requirements.txt  venv
+(venv) ubuntu@ip-172-31-22-51:~/fluffy-computing-machine$ python manage.py collectstatic
+
+You have requested to collect static files at the destination
+location as specified in your settings:
+
+    /home/ubuntu/fluffy-computing-machine/static
+
+This will overwrite existing files!
+Are you sure you want to do this?
+
+Type 'yes' to continue, or 'no' to cancel: yes
+Copying '/home/ubuntu/fluffy-computing-machine/apps/login/static/style.css'
+Found another file with the destination path 'style.css'. It will be ignored since only the first encountered file is collected. If this is not what you want, make sure every static file has a unique path.
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/css/fonts.css'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/css/login.css'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/css/changelists.css'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/css/forms.css'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/css/dashboard.css'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/css/rtl.css'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/css/widgets.css'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/css/base.css'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/js/inlines.min.js'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/js/prepopulate.js'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/js/SelectBox.js'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/js/prepopulate_init.js'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/js/jquery.init.js'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/js/actions.min.js'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/js/popup_response.js'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/js/collapse.min.js'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/js/prepopulate.min.js'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/js/SelectFilter2.js'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/js/core.js'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/js/urlify.js'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/js/cancel.js'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/js/timeparse.js'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/js/change_form.js'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/js/inlines.js'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/js/calendar.js'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/js/collapse.js'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/js/actions.js'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/js/vendor/jquery/jquery.js'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/js/vendor/jquery/jquery.min.js'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/js/vendor/jquery/LICENSE-JQUERY.txt'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/js/vendor/xregexp/LICENSE-XREGEXP.txt'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/js/vendor/xregexp/xregexp.min.js'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/js/vendor/xregexp/xregexp.js'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/js/admin/DateTimeShortcuts.js'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/js/admin/RelatedObjectLookups.js'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/img/icon-changelink.svg'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/img/icon-clock.svg'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/img/icon-unknown-alt.svg'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/img/icon-alert.svg'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/img/inline-delete.svg'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/img/icon-deletelink.svg'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/img/README.txt'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/img/icon-calendar.svg'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/img/icon-unknown.svg'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/img/tooltag-add.svg'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/img/calendar-icons.svg'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/img/icon-yes.svg'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/img/sorting-icons.svg'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/img/icon-no.svg'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/img/icon-addlink.svg'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/img/tooltag-arrowright.svg'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/img/LICENSE'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/[Unit]
+Description=gunicorn daemon
+After=network.target
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/fluffy-computing-machine
+ExecStart=/home/ubuntu/fluffy-computing-machine/venv/bin/gunicorn --workers 3 --bind unix:/home/ubuntu/fluffy-computing-machine/friends.sock friends.wsgi:application
+[Install]
+WantedBy=multi-user.target
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+[Unit]
+Description=gunicorn daemon
+After=network.target
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/fluffy-computing-machine
+ExecStart=/home/ubuntu/fluffy-computing-machine/venv/bin/gunicorn --workers 3 --bind unix:/home/ubuntu/fluff
+fy-computing-machine/friends.sock friends.wsgi:application
+[Install]
+WantedBy=multi-user.target
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+[Unit]
+Description=gunicorn daemon
+After=network.target
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/fluffy-computing-machine
+ExecStart=/home/ubuntu/fluffy-computing-machine/venv/bin/gunicorn --workers 3 --bind unix:/home/ubuntu/fluffy-computing-machine/frr
+iends.sock friends.wsgi:application
+[Install]
+WantedBy=multi-user.target
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+                                                                                                                8,148         All
+[Unit]
+Description=gunicorn daemon
+After=network.target
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/fluffy-computing-machine
+ExecStart=/home/ubuntu/fluffy-computing-machine/venv/bin/gunicorn --workers 3 --bind unix:/home/ubuntu/fluffy-computing-machine/friends.ss
+ock friends.wsgi:application
+[Install]
+WantedBy=multi-user.target
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+                                                                                                                       8,148      All
+~
+
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+                                                                                                                        8,148       All
+                                                                                         8,148         All
+                                                                                        8,148         All
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+                                                                                                                       8,148      All
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+After=network.target
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/fluffy-computing-machine
+ExecStart=/home/ubuntu/fluffy-computing-machine/venv/bin/gunicorn --workers 3 --bind unix:/home/ubuntu/fluffy-computing-machine/frends.sock friends.wsgi:application
+[Install]
+WantedBy=multi-user.target
+~                                                                                                                                 ~                                                                                                                                 ~                                                                                                                                 ~                                                                                                                                 ~                                                                                                                                 ~                                                                                                                                 ~                                                                                                                                 ~                                                                                                                                 ~                                                                                                                                 ~                                                                                                                                 ~                                                                                                                                 ~                                                                                                                                 ~                                                                                                                                 ~                                                                                                                                 ~                                                                                                                                 ~                                                                                                                                 ~                                                                                                                                 ~                                                                                                                                 ~                                                                                                                                 ~                                                                                                                                 ~                                                                                                                                 ~                                                                                                                                                                                      8,148         All
+~                                                                                                                            ~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~                                                                                                                             ~                                                                                                                             ~                                                                                                                             ~                                                                                                                             ~                                                                                                                             ~                                                                                                                             ~                                                                                                                             ~                                                                                                                             ~                                                                                                                             ~                                                                                                                             ~                                                                                                                                                                                                                                8,148         All
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+                                                                                                           8,148         All
+
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+                                                                                                          8,148         All
+                                                                                                                   8,148After=network.target
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/fluffy-computing-machine
+ExecStart=/home/ubuntu/fluffy-computing-machine/venv/bin/gunicorn --workers 3 --bind unix:/home/ubuntu/fluffy-computing-mahine/friends.sock friends.wsgi:application
+[Install]
+WantedBy=multi-user.target
+~                                                                                                                         ~                                                                                                                         ~                                                                                                                         ~                                                                                                                         ~                                                                                                                         ~                                                                                                                         ~                                                                                                                         ~                                                                                                                         ~                                                                                                                         ~                                                                                                                         ~                                                                                                                         ~                                                                                                                         ~                                                                                                                         ~                                                                                                                         ~                                                                                                                         ~                                                                                                                         ~                                                                                                                         ~                                                                                                                         ~                                                                                                                         ~                                                                                                                         ~                                                                                                                          8,148         All
+         All
+Description=gunicorn daemon
+After=network.target
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/fluffy-computing-machine
+ExecStart=/home/ubuntu/fluffy-computing-machine/venv/bin/gunicorn --workers 3 --bind unix:/home/ubuntu/fluffy-computing-machine/friends.sock friends.wsgi:application
+[Install]
+WantedBy=multi-user.target
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+                                                                                                      8,148         All
+img/selector-icons.svg'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/img/search.svg'
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/fluffy-computing-machine
+ExecStart=/home/ubuntu/fluffy-computing-machine/venv/bin/gunicorn --workers 3 --bind unix:/home/ubuntu/fluffy-computing-machine/friends.sock friends.wsgi:application
+[Install]
+WantedBy=multi-user.target
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+                                                                                                      8,148         All
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/img/gis/move_vertex_off.svg'
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/fluffy-computing-machine
+ExecStart=/home/ubuntu/fluffy-computing-machine/venv/bin/gunicorn --workers 3 --bind unix:/home/ubuntu/fluffy-computing--
+machine/friends.sock friends.wsgi:application
+[Install]
+WantedBy=multi-user.target
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+                                                                                                      8,148         Bot
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/img/gis/move_vertex_on.svg'
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/fluffy-computing-machine
+ExecStart=/home/ubuntu/fluffy-computing-machine/venv/bin/gunicorn --workers 3 --bind unix:/home/ubuntu/fluffy-computing-machine/friends.sock friends.wsgi:application
+[Install]
+WantedBy=multi-user.target
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+                                                                                                       8,148         Bot
+After=network.target
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/fluffy-computing-machine
+ExecStart=/home/ubuntu/fluffy-computing-machine/venv/bin/gunicorn --workers 3 --bind unix:/home/ubuntu/fluffy-computing-machine/friends.sock friends.wsgi:application
+[Install]
+WantedBy=multi-user.target
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+After=network.target
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/fluffy-computing-machine
+ExecStart=/home/ubuntu/fluffy-computing-machine/venv/bin/gunicorn --workers 3 --bind unix:/home/ubuntu/fluffy-computing-macc
+hine/friends.sock friends.wsgi:application
+[Install]
+WantedBy=multi-user.target
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+                                                                                                         8,148         Bot
+Description=gunicorn daemon
+After=network.target
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/fluffy-computing-machine
+ExecStart=/home/ubuntu/fluffy-computing-machine/venv/bin/gunicorn --workers 3 --bind unix:/home/ubuntu/fluffy-computing-machine/friee
+nds.sock friends.wsgi:application
+[Install]
+WantedBy=multi-user.target
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+                                                                                                                  8,148 Bot
+
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+                                                                                                                         8,148        Bot
+~
+
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+                                                                                                                        8,148       Bot
+                                                                                                        8,148         Bot
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+                                                                                                                       8,148      Bot
+After=network.target
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/fluffy-computing-machine
+ExecStart=/home/ubuntu/fluffy-computing-machine/venv/bin/gunicorn --workers 3 --bind unix:/home/ubuntu/fluffy-computing-machine/friendssock friends.wsgi:application
+[Install]
+WantedBy=multi-user.target
+~                                                                                                                                      ~                                                                                                                                      ~                                                                                                                                      ~                                                                                                                                      ~                                                                                                                                      ~                                                                                                                                      ~                                                                                                                                      ~                                                                                                                                      ~                                                                                                                                      ~                                                                                                                                      ~                                                                                                                                      ~                                                                                                                                      ~                                                                                                                                      ~                                                                                                                                      ~                                                                                                                                                                                                                                                      8,148         Bot
+After=network.target
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/fluffy-computing-machine
+ExecStart=/home/ubuntu/fluffy-computing-machine/venv/bin/gunicorn --workers 3 --bind unix:/home/ubuntu/fluffy-computing-machine/frieds.sock friends.wsgi:application
+[Install]
+WantedBy=multi-user.target
+~                                                                                                                                   ~                                                                                                                                   ~                                                                                                                                   ~                                                                                                                                   ~                                                                                                                                   ~                                                                                                                                   ~                                                                                                                                   ~                                                                                                                                   ~                                                                                                                                   ~                                                                                                                                   ~                                                                                                                                   ~                                                                                                                                   ~                                                                                                                                   ~                                                                                                                                   ~                                                                                                                                                                                                   8,148         Bot
+
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+                                                                                                                 8,148Bot
+
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+                                                                                                                8,148         Bot
+
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+                                                                                                              8,148         Bot
+Description=gunicorn daemon
+After=network.target
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/fluffy-computing-machine
+ExecStart=/home/ubuntu/fluffy-computing-machine/venv/bin/gunicorn --workers 3 --bind unix:/home/ubuntu/fluffy-computing-machine/friends.sock friends.wsgi:application
+[Install]
+WantedBy=multi-user.target
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+                                                                                                            8,148         Bot
+Description=gunicorn daemon
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/fonts/LICENSE.txt'
+erver {
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/fonts/README.txt'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/fonts/Roboto-Bold-webfont.woff'
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/fonts/Roboto-Light-webfont.woff'
+server {
+Copying '/home/ubuntu/fluffy-computing-machine/venv/local/lib/python2.7/site-packages/django/contrib/admin/static/admin/fonts/Roboto-Regular-webfont.woff'
+
+62 static files copied to '/home/ubuntu/fluffy-computing-machine/static'.
+(venv) ubuntu@ip-172-31-22-51:~/fluffy-computing-machine$ gunicorn --bind 0.0.0.0:8000 friends.wsgi:application
+[2018-02-26 03:24:34 +0000] [8413] [INFO] Starting gunicorn 19.7.1
+[2018-02-26 03:24:34 +0000] [8413] [INFO] Listening at: http://0.0.0.0:8000 (8413)
+[2018-02-26 03:24:34 +0000] [8413] [INFO] Using worker: sync
+[2018-02-26 03:24:34 +0000] [8417] [INFO] Booting worker with pid: 8417
+^C[2018-02-26 03:25:10 +0000] [8413] [INFO] Handling signal: int
+[2018-02-26 03:25:10 +0000] [8417] [INFO] Worker exiting (pid: 8417)
+[2018-02-26 03:25:10 +0000] [8413] [INFO] Shutting down: Master
+(venv) ubuntu@ip-172-31-22-51:~/fluffy-computing-machine$ deactivate
+ubuntu@ip-172-31-22-51:~/fluffy-computing-machine$ sudo vim /etc/systemd/system/gunicorn.service
+ubuntu@ip-172-31-22-51:~/fluffy-computing-machine$ sudo vim /etc/systemd/system/gunicorn.service
+ubuntu@ip-172-31-22-51:~/fluffy-computing-machine$ sudo systemctl daemon-reload
+ubuntu@ip-172-31-22-51:~/fluffy-computing-machine$ sudo systemctl start gunicorn
+ubuntu@ip-172-31-22-51:~/fluffy-computing-machine$ sudo systemctl enable gunicorn
+Created symlink from /etc/systemd/system/multi-user.target.wants/gunicorn.service to /etc/systemd/system/gunicorn.service.
+ubuntu@ip-172-31-22-51:~/fluffy-computing-machine$ sudo vim /etc/nginx/sites-available/friends
+ubuntu@ip-172-31-22-51:~/fluffy-computing-machine$ sudo ln -s /etc/nginx/sites-available/friends/etc/nginx/sites-enabled
+ubuntu@ip-172-31-22-51:~/fluffy-computing-machine$ sudo ln -s /etc/nginx/sites-available/friends /etc/nginx/sites-enabled
+ubuntu@ip-172-31-22-51:~/fluffy-computing-machine$ sudo nginx -t
+nginx: [emerg] unknown directive "erver" in /etc/nginx/sites-enabled/friends:1
+nginx: configuration file /etc/nginx/nginx.conf test failed
+ubuntu@ip-172-31-22-51:~/fluffy-computing-machine$ sudo vim /etc/nginx/sites-available/friends
+ubuntu@ip-172-31-22-51:~/fluffy-computing-machine$ sudo ln -s /etc/nginx/sites-available/friends /etc/nginx/sites-enabled
+ln: failed to create symbolic link '/etc/nginx/sites-enabled/friends': File exists
+ubuntu@ip-172-31-22-51:~/fluffy-computing-machine$ sudo nginx -t
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+ubuntu@ip-172-31-22-51:~/fluffy-computing-machine$ sudo rm /etc/nginx/sites-enabled/default
+ubuntu@ip-172-31-22-51:~/fluffy-computing-machine$ sudo service nginx restart
+ubuntu@ip-172-31-22-51:~/fluffy-computing-machine$

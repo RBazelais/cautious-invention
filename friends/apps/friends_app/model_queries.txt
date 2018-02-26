@@ -1,0 +1,26 @@
+(InteractiveConsole)
+>>> from apps.friends_app.models import *
+>>> nadine = User.objects.get(id=1)
+>>> nadine.save()
+>>> chloe = User.objects.get(id=2)
+>>> chloe.save()
+>>> same = User.objects.get(id=3)
+>>> sam = User.objects.get(id=3)
+>>> sam.save()
+>>> nate = User.objects.get(id=4)
+>>> nate.save()
+>>> elena = User.objects.get(id=5)
+>>> elena.save()
+>>> sully = User.objects.get(id=6)
+>>> sully.save()
+
+
+**********
+'all_users': User.objects.exclude(friendships = user.friendships.all()).exclude(to_people = Friendship.objects.all())
+            # 'all_users': Friendship.objects.all().exclude(to_person=user.friendships.exclude(id=user.id))
+            # 'all_users': user.friendships.exclude(id=user.id).exclude(to_people=Friendship.objects.exclude(id=user.id))
+
+Friendship.objects.filter(to_person=User.objects.get(id=this_person.id)).delete()
+    print "************"
+    print "friend was removed from user in session"
+    print "************"

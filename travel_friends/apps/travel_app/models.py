@@ -37,11 +37,6 @@ class TripManager(models.Manager):
             # new_trip.user_trips.add()
             return (True, new_trip)
 
-    
-    # def join(self):
-    #     join_trip = User.objects.get(id=)
-    #     pass
-
 class Trip(models.Model):
     destination = models.CharField(max_length=255)
     description = models.TextField(max_length=500)
